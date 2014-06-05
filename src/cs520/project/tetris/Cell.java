@@ -12,10 +12,21 @@ import javax.microedition.khronos.opengles.GL10;
  */
 class Cell
 {
-	public Cell(float x, float y)
+	public Cell(float x, float y, int type)
     {
 		float CELL_SIZE = .075f;
-        int one = 0x10000;
+
+	    int colors[] = {
+	            1,    0,    0,  1,
+	            1,    0,    0,  1,
+	            1,    0,    0,  1,
+	            1,    0,    0,  1,
+	            1,    0,    0,  1,
+	            1,    0,    0,  1,
+	            1,    0,    0,  1,
+	            1,    0,    0,  1,
+	    };
+	    
         float vertices[] = {
                 x-CELL_SIZE, y-CELL_SIZE, -CELL_SIZE,
                 x+CELL_SIZE, y-CELL_SIZE, -CELL_SIZE,
@@ -26,18 +37,7 @@ class Cell
                 x+CELL_SIZE, y+CELL_SIZE,  CELL_SIZE,
                 x-CELL_SIZE, y+CELL_SIZE,  CELL_SIZE,
         };
-
-        int colors[] = {
-                one,    0,    0,  one,
-                one,    0,    0,  one,
-                one,    0,    0,  one,
-                one,    0,    0,  one,
-                one,    0,    0,  one,
-                one,    0,    0,  one,
-                one,    0,    0,  one,
-                one,    0,    0,  one,
-        };
-
+        
         byte indices[] = {
                 0, 4, 5,    0, 5, 1,
                 1, 5, 6,    1, 6, 2,
@@ -83,4 +83,5 @@ class Cell
     private FloatBuffer   mVertexBuffer;
     private IntBuffer   mColorBuffer;
     private ByteBuffer  mIndexBuffer;
+    
 }
